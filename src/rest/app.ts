@@ -163,7 +163,7 @@ router.post('/:id/team', requireLogin, noPendingMigrations, a(async (req, res) =
   if (checkFields(req, res, ['team'])) {
     let team: string[];
     try {
-      team = JSON.parse(req.body.team);
+      team = req.body.team;
     } catch {
       return res.status(400).json({ error: 'Provided parameter "team" is not valid JSON' });
     }
